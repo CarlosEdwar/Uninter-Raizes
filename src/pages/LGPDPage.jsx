@@ -21,12 +21,10 @@ export default function LGPDPage() {
 
   return (
     <div className="min-h-screen bg-surface px-4 py-8 relative overflow-hidden">
-      {/* Background decorativo */}
       <div className="absolute top-0 left-0 w-full h-[400px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10 animate-fade-in">
-        {/* Header */}
         <div className="flex items-center gap-3 mb-8">
           <button onClick={() => navigate('/')} className="btn-ghost p-2 -ml-2 text-white/60 hover:text-white">
             <ArrowLeft className="w-5 h-5" />
@@ -42,7 +40,6 @@ export default function LGPDPage() {
           </div>
         </div>
 
-        {/* Banner de compromisso */}
         <div className="glass-card p-6 mb-8 border-primary/20 bg-gradient-to-r from-primary/10 to-transparent">
           <div className="flex items-start gap-4">
             <div className="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center shrink-0">
@@ -79,7 +76,6 @@ export default function LGPDPage() {
           </div>
         </section>
 
-        {/* Dados que coletamos */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
             <Database className="w-5 h-5 text-primary" />
@@ -116,7 +112,6 @@ export default function LGPDPage() {
           </div>
         </section>
 
-        {/* Seus Direitos */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
             <UserCheck className="w-5 h-5 text-primary" />
@@ -137,7 +132,6 @@ export default function LGPDPage() {
           </div>
         </section>
 
-        {/* Como exercer seus direitos */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
             <Lock className="w-5 h-5 text-primary" />
@@ -159,7 +153,7 @@ export default function LGPDPage() {
               </div>
               <div className="flex items-center gap-3 text-sm">
                 <span className="text-primary font-semibold">Endereço:</span>
-                <span className="text-white/70">Rua Cel. Lemos, 120 — Centro, Nazaré do Piauí/PI</span>
+                <span className="text-white/70">Rua Cel. Lemos, 120 — Centro, Nossa Senhora de Nazaré/PI</span>
               </div>
             </div>
             <p className="text-white/40 text-xs mt-4">
@@ -168,7 +162,6 @@ export default function LGPDPage() {
           </div>
         </section>
 
-        {/* Base Legal */}
         <section className="mb-10">
           <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
             <FileText className="w-5 h-5 text-primary" />
@@ -190,7 +183,6 @@ export default function LGPDPage() {
           </div>
         </section>
 
-        {/* Footer informativo */}
         <div className="text-center py-8 border-t border-surface-border/30">
           <p className="text-white/40 text-xs mb-2">
             Última atualização: {new Date().toLocaleDateString('pt-BR')}

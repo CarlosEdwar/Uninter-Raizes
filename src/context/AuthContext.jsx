@@ -5,7 +5,7 @@ const AuthContext = createContext(null);
 const STORAGE_KEY = 'cyber_session';
 const USERS_KEY   = 'cyber_users';
 
-// Usuário padrão para avaliação
+// Usuário padrão
 const DEFAULT_USER = {
   id: 'demo-user-001',
   name: 'Usuário Demo',

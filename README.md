@@ -1,8 +1,8 @@
 # Raízes do Nordeste - Sistema de Pedidos
 
-Aplicação React completa para sistema de pedidos de uma rede de lanchonetes, desenvolvida como trabalho acadêmico.
+Aplicação React para sistema de pedidos de uma rede de lanchonetes, proposto como trabalho da trilha Frontend.
 
-## ✅ Requisitos Funcionais Implementados
+## Requisitos Implementados
 
 ### 1. Cadastro e Autenticação de Usuários
 - **Localização**: `/auth`
@@ -85,7 +85,7 @@ Aplicação React completa para sistema de pedidos de uma rede de lanchonetes, d
   - Bases legais para tratamento (Consentimento, Execução de Contrato, Legítimo Interesse)
   - Link acessível via ícone de escudo (🛡️) na Navbar
 
-## 🏗️ Arquitetura do Projeto
+## Arquitetura do Projeto
 
 ### Estrutura de Diretórios
 ```
@@ -107,7 +107,7 @@ src/
 │   ├── MenuPage.jsx     # Cardápio completo
 │   ├── CheckoutPage.jsx # Finalização com pagamento simulado
 │   ├── TrackingPage.jsx # Acompanhamento de pedidos
-│   └── LGPDPage.jsx     # Página de conformidade LGPD ⭐ NOVO
+│   └── LGPDPage.jsx     # Página de conformidade LGPD
 ├── App.jsx              # Rotas e providers
 └── index.css            # Estilos globais Tailwind
 ```
@@ -120,7 +120,7 @@ src/
 - **Vite** - Build tool
 - **localStorage** - Persistência de dados
 
-## 🚀 Como Executar
+## Como Executar
 
 ```bash
 # Instalar dependências
@@ -136,7 +136,7 @@ npm run build
 npm run preview
 ```
 
-## 📋 Fluxo de Uso
+## Fluxo de Uso
 
 1. **Acesso Inicial** → Redirecionado para `/auth`
 2. **Cadastro/Login** → Preenche formulário e autentica
@@ -147,15 +147,5 @@ npm run preview
 7. **Tracking** → Acompanha status do pedido em tempo real simulado
 8. **LGPD** → Acessa página de privacidade a qualquer momento via Navbar
 
-## 💎 Destaques de Implementação
 
-- **Design System Coerente**: Glassmorphism, gradientes, animações suaves
-- **UX Aprimorada**: Feedback visual em todas as ações (toasts)
-- **Responsividade**: Layout adaptativo para mobile e desktop
-- **Estado Global**: Context API bem estruturada
-- **Dados Mockados**: Seed centralizada para fácil manutenção
-- **LGPD Explícita**: Página dedicada e acessível com todos os requisitos da lei
-
-## 📄 Licença
-
-Projeto desenvolvido para fins acadêmicos.
+## Projeto Acadêmico

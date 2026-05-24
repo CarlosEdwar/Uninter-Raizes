@@ -53,7 +53,7 @@ export default function AuthPage() {
       </div>
 
       <div className="w-full max-w-md relative animate-fade-in">
-        {/* Card de credenciais demo */}
+        
         <div className="glass-card p-4 mb-6 border border-primary/20">
           <div className="flex items-start gap-3">
             <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">

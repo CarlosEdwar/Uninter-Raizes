@@ -83,7 +83,7 @@ export default function CheckoutPage() {
 
     setPaymentStep(2);
 
-    // Dá 1 segundo pro usuário ler "Pagamento Aprovado"
+    // Dá 1 segundo pro usuário ler 
     await new Promise(r => setTimeout(r, 1200));
 
     // Subtrai pontos
@@ -115,7 +115,6 @@ export default function CheckoutPage() {
   return (
     <div className="min-h-screen bg-surface px-4 py-8 relative">
 
-      {/* Modal de Pagamento Externo Simulado */}
       {paymentStep > 0 && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-surface/90 backdrop-blur-md px-4">
           <div className="glass-card p-8 flex flex-col items-center text-center max-w-sm w-full animate-slide-up border-primary/20 shadow-2xl shadow-primary/10">
@@ -142,7 +141,6 @@ export default function CheckoutPage() {
 
       <div className="max-w-3xl mx-auto space-y-6 animate-fade-in">
 
-        {/* Cabeçalho */}
         <div className="flex items-center gap-3">
           <button onClick={() => navigate('/menu')} className="btn-ghost p-2 -ml-2 text-white/60 hover:text-white">
             <ArrowLeft className="w-5 h-5" />
@@ -153,7 +151,6 @@ export default function CheckoutPage() {
           </div>
         </div>
 
-        {/* Itens */}
         <div className="glass-card p-2 border-surface-border/50">
           {items.map(item => (
             <div key={item.id} className="flex items-center gap-4 p-3 border-b border-surface-border/30 last:border-0 hover:bg-white/[0.02] rounded-xl transition-colors">
@@ -171,7 +168,6 @@ export default function CheckoutPage() {
                 </p>
               </div>
 
-              {/* Qty controls */}
               <div className="flex items-center gap-2 bg-surface-card border border-surface-border rounded-full p-1 shadow-sm">
                 <button
                   onClick={() => removeItem(item.id)}
@@ -195,10 +191,8 @@ export default function CheckoutPage() {
           ))}
         </div>
 
-        {/* Promos & Fidelidade */}
         <div className="grid sm:grid-cols-2 gap-4">
 
-          {/* Cupom */}
           <div className="glass-card p-5 flex flex-col gap-4 border-surface-border/50">
             <h2 className="font-semibold text-sm text-white/80 flex items-center gap-2">
               <Ticket className="w-4 h-4 text-primary" /> Inserir Cupom Promocional
@@ -229,7 +223,6 @@ export default function CheckoutPage() {
             )}
           </div>
 
-          {/* Fidelidade */}
           <div className="glass-card p-5 flex flex-col gap-4 border-surface-border/50 relative overflow-hidden">
             <div className="absolute -bottom-10 -right-10 opacity-[0.03]">
               <Star className="w-40 h-40" />
@@ -269,7 +262,6 @@ export default function CheckoutPage() {
 
         </div>
 
-        {/* Pagamento */}
         <div className="glass-card p-5 border-surface-border/50">
           <h2 className="font-semibold mb-4 text-sm text-white/80">Pagamento (Integração Externa)</h2>
           <div className="grid grid-cols-3 gap-3">
@@ -289,7 +281,6 @@ export default function CheckoutPage() {
           </div>
         </div>
 
-        {/* Resumo*/}
         <div className="glass-card p-6 space-y-4 border-surface-border/50">
           <div className="flex justify-between text-sm text-white/50">
             <span>Subtotal</span>

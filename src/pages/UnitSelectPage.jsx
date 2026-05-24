@@ -16,7 +16,6 @@ export default function UnitSelectPage() {
 
   return (
     <div className="min-h-screen bg-surface px-4 py-12 relative overflow-hidden">
-      {/* Background patterns and glow */}
       <div className="absolute top-0 left-0 w-full h-[500px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none" />
       <div className="absolute -top-40 -right-40 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
       
@@ -39,7 +38,6 @@ export default function UnitSelectPage() {
               className="group relative flex flex-col p-6 text-left rounded-3xl bg-surface-card border border-surface-border overflow-hidden hover:border-primary/50 transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              {/* Graphic Element */}
               <div className="w-full h-32 mb-6 rounded-2xl bg-gradient-to-br from-surface to-primary/10 flex items-center justify-center relative overflow-hidden shrink-0 border border-white/5">
                  <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#FF6B35_1px,transparent_1px)] [background-size:16px_16px]"></div>
                  <MapPin className="w-10 h-10 text-primary group-hover:scale-125 transition-transform duration-500 relative z-10" />

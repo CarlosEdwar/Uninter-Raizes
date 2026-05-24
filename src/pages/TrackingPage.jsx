@@ -21,7 +21,6 @@ function StatusTimeline({ statusIdx }) {
               {s.label}
             </span>
           </div>
-          {/* Linha conectora */}
           {i < ORDER_STATUSES.length - 1 && (
             <div className="flex-1 h-0.5 mx-1 mb-5 rounded-full overflow-hidden bg-white/10">
               <div
@@ -52,7 +51,6 @@ function OrderCard({ order, onAdvance }) {
 
   return (
     <div className="glass-card p-5 space-y-5 animate-slide-up">
-      {/* Cabeçalho */}
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="flex items-center gap-2 mb-0.5">
@@ -71,10 +69,8 @@ function OrderCard({ order, onAdvance }) {
         </span>
       </div>
 
-      {/* Timeline */}
       <StatusTimeline statusIdx={order.statusIdx} />
 
-      {/* Itens resumidos */}
       <div className="pt-3 border-t border-surface-border">
         <p className="text-xs text-white/30 mb-2">Itens do pedido</p>
         <div className="flex flex-wrap gap-1.5">

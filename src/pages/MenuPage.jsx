@@ -78,7 +78,6 @@ export default function MenuPage() {
 
   return (
     <div className="min-h-screen bg-surface pb-32">
-      {/* Header simples translúcido */}
       <div className="pt-8 pb-4 px-4 sticky top-16 z-30 bg-surface/80 backdrop-blur-xl border-b border-surface-border/50">
         <div className="max-w-4xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
@@ -106,7 +105,6 @@ export default function MenuPage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 mt-8">
-        {/* Banner de Promoção / Campanhas */}
         {CAMPAIGNS.map(camp => (
           <div key={camp.id} className="mb-8 bg-gradient-to-r from-primary/20 to-primary/5 border border-primary/20 rounded-2xl p-4 flex items-start sm:items-center gap-4 animate-fade-in shadow-lg shadow-primary/5">
             <div className="bg-primary/20 p-3 rounded-full text-primary shrink-0">
@@ -124,7 +122,6 @@ export default function MenuPage() {
           </div>
         ))}
 
-        {/* Categorias minimalistas */}
         <div className="flex gap-8 overflow-x-auto pb-4 mb-6 scrollbar-none border-b border-surface-border/50 mask-fade-edges">
           <button
             onClick={() => setActiveCategory('todos')}
@@ -147,7 +144,6 @@ export default function MenuPage() {
           ))}
         </div>
 
-        {/* Lista de produtos */}
         <div className="animate-fade-in">
           {filtered.length === 0 ? (
             <div className="text-center py-24 text-white/30">
@@ -170,7 +166,6 @@ export default function MenuPage() {
         </div>
       </div>
 
-      {/* Floating cart (cleaner) */}
       {count > 0 && (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[calc(100%-2rem)] max-w-sm animate-slide-up">
           <button

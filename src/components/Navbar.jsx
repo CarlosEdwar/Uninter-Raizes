@@ -50,7 +50,6 @@ export default function Navbar() {
             {channel}
           </span>
 
-          {/* Pontos Fidelidade */}
           {user && (
             <div className="hidden sm:flex items-center gap-1.5 bg-yellow-500/10 text-yellow-400 px-3 py-1.5 rounded-full text-xs font-bold border border-yellow-500/20 shadow-[0_0_10px_rgba(234,179,8,0.1)] ml-2" title="Programa de Fidelidade Raízes">
               <Star className="w-3.5 h-3.5 fill-current" />
@@ -58,7 +57,6 @@ export default function Navbar() {
             </div>
           )}
 
-          {/* LGPD Link */}
           <button
             onClick={() => navigate('/lgpd')}
             className={`btn-ghost p-2 ${pathname === '/lgpd' ? 'text-primary' : ''}`}
@@ -67,7 +65,6 @@ export default function Navbar() {
             <Shield className="w-5 h-5" />
           </button>
 
-          {/* Pedidos */}
           {user && (
             <button
               onClick={() => navigate('/tracking')}
@@ -78,7 +75,6 @@ export default function Navbar() {
             </button>
           )}
 
-          {/* Carrinho */}
           {user && pathname !== '/checkout' && (
             <button
               onClick={() => navigate('/checkout')}
@@ -94,7 +90,6 @@ export default function Navbar() {
             </button>
           )}
 
-          {/* Logout */}
           {user && (
             <button onClick={handleLogout} className="btn-ghost p-2" title="Sair">
               <LogOut className="w-5 h-5" />
