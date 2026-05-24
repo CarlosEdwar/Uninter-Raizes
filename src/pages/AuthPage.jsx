@@ -41,6 +41,11 @@ export default function AuthPage() {
     clearError();
   }
 
+  // Preenche automaticamente ao clicar em "Preencher"
+  function fillDemoCredentials(field, value) {
+    setForm(f => ({ ...f, [field]: value }));
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-surface">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -48,6 +53,44 @@ export default function AuthPage() {
       </div>
 
       <div className="w-full max-w-md relative animate-fade-in">
+        {/* Card de credenciais demo */}
+        <div className="glass-card p-4 mb-6 border border-primary/20">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+              <span className="text-lg">🔑</span>
+            </div>
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-primary mb-2">Usuário Demo para Avaliação</p>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2 bg-black/20 rounded-lg px-3 py-2">
+                  <Mail className="w-3.5 h-3.5 text-white/40" />
+                  <code className="text-xs text-white/80 font-mono">demo@raizes.com</code>
+                  <button 
+                    onClick={() => fillDemoCredentials('email', 'demo@raizes.com')}
+                    className="ml-auto text-xs text-primary hover:text-white transition-colors"
+                  >
+                    Preencher
+                  </button>
+                </div>
+                <div className="flex items-center gap-2 bg-black/20 rounded-lg px-3 py-2">
+                  <Lock className="w-3.5 h-3.5 text-white/40" />
+                  <code className="text-xs text-white/80 font-mono">123456</code>
+                  <button 
+                    onClick={() => fillDemoCredentials('password', '123456')}
+                    className="ml-auto text-xs text-primary hover:text-white transition-colors"
+                  >
+                    Preencher
+                  </button>
+                </div>
+              </div>
+              <p className="text-xs text-white/40 mt-2 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                Clique em "Preencher" ou digite manualmente
+              </p>
+            </div>
+          </div>
+        </div>
+
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-4">
             <Flame className="w-8 h-8 text-primary" />
@@ -62,7 +105,7 @@ export default function AuthPage() {
           {['login', 'register'].map(m => (
             <button
               key={m}
-              onClick={() => switchMode()}
+              onClick={() => { switchMode(); }}
               className={`flex-1 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200
                 ${mode === m ? 'bg-primary text-white shadow-lg' : 'text-white/50 hover:text-white'}`}
             >
