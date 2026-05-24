@@ -1,5 +1,5 @@
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { ShoppingCart, MapPin, LogOut, Flame, ClipboardList, Star } from 'lucide-react';
+import { ShoppingCart, MapPin, LogOut, Flame, ClipboardList, Star, Shield } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
 import { useChannel } from '../context/ChannelContext';
@@ -57,6 +57,15 @@ export default function Navbar() {
               {user.points || 0} pts
             </div>
           )}
+
+          {/* LGPD Link */}
+          <button
+            onClick={() => navigate('/lgpd')}
+            className={`btn-ghost p-2 ${pathname === '/lgpd' ? 'text-primary' : ''}`}
+            title="Privacidade e LGPD"
+          >
+            <Shield className="w-5 h-5" />
+          </button>
 
           {/* Pedidos */}
           {user && (
