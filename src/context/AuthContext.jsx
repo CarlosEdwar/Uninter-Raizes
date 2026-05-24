@@ -5,7 +5,26 @@ const AuthContext = createContext(null);
 const STORAGE_KEY = 'cyber_session';
 const USERS_KEY   = 'cyber_users';
 
-function getUsers()   { return JSON.parse(localStorage.getItem(USERS_KEY)  || '[]'); }
+// Usuário padrão para avaliação
+const DEFAULT_USER = {
+  id: 'demo-user-001',
+  name: 'Usuário Demo',
+  email: 'demo@raizes.com',
+  password: '123456',
+  points: 100,
+  createdAt: Date.now()
+};
+
+function getUsers() {
+  const users = JSON.parse(localStorage.getItem(USERS_KEY) || '[]');
+  // Garante que o usuário padrão sempre exista
+  if (!users.find(u => u.email === DEFAULT_USER.email)) {
+    users.push(DEFAULT_USER);
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+  }
+  return users;
+}
+
 function getSession() { return JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null'); }
 
 const initialState = { user: getSession(), error: null };
