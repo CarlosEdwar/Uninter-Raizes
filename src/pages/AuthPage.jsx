@@ -1,0 +1,139 @@
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Flame, Eye, EyeOff, User, Mail, Lock } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
+
+export default function AuthPage() {
+  const [mode, setMode]   = useState('login');       // 'login' | 'register'
+  const [form, setForm]   = useState({ name: '', email: '', password: '' });
+  const [show, setShow]   = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const { user, login, register, error, clearError } = useAuth();
+  const toast    = useToast();
+  const navigate = useNavigate();
+
+  /* Redireciona se já autenticado */
+  useEffect(() => { if (user) navigate('/'); }, [user]);
+
+  useEffect(() => {
+    if (error) { toast(error, 'error'); clearError(); }
+  }, [error]);
+
+  function set(field) { return e => setForm(f => ({ ...f, [field]: e.target.value })); }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+
+    const ok = mode === 'login'
+      ? login({ email: form.email, password: form.password })
+      : register(form);
+
+    if (ok) toast(mode === 'login' ? 'Bem-vindo de volta!' : 'Conta criada com sucesso!', 'success');
+    setLoading(false);
+  }
+
+  function switchMode() {
+    setMode(m => m === 'login' ? 'register' : 'login');
+    setForm({ name: '', email: '', password: '' });
+    clearError();
+  }
+
+  return (
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-surface">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-primary/10 rounded-full blur-[100px]" />
+      </div>
+
+      <div className="w-full max-w-md relative animate-fade-in">
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/20 mb-4">
+            <Flame className="w-8 h-8 text-primary" />
+          </div>
+          <h1 className="text-3xl font-bold">Raízes<span className="text-primary">.</span></h1>
+          <p className="text-white/50 text-sm mt-1">
+            {mode === 'login' ? 'Acesse sua conta para pedir' : 'Crie sua conta gratuitamente'}
+          </p>
+        </div>
+
+        <div className="flex glass-card p-1 mb-6 gap-1">
+          {['login', 'register'].map(m => (
+            <button
+              key={m}
+              onClick={() => switchMode()}
+              className={`flex-1 py-2.5 text-sm font-semibold rounded-xl transition-all duration-200
+                ${mode === m ? 'bg-primary text-white shadow-lg' : 'text-white/50 hover:text-white'}`}
+            >
+              {m === 'login' ? 'Entrar' : 'Criar conta'}
+            </button>
+          ))}
+        </div>
+
+        <form onSubmit={handleSubmit} className="glass-card p-6 flex flex-col gap-4">
+          {mode === 'register' && (
+            <div className="relative">
+              <User className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+              <input
+                id="name"
+                className="input-field pl-10"
+                type="text"
+                placeholder="Seu nome completo"
+                value={form.name}
+                onChange={set('name')}
+                required
+                minLength={2}
+              />
+            </div>
+          )}
+
+          <div className="relative">
+            <Mail className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+            <input
+              id="email"
+              className="input-field pl-10"
+              type="email"
+              placeholder="seu@email.com"
+              value={form.email}
+              onChange={set('email')}
+              required
+            />
+          </div>
+
+          <div className="relative">
+            <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+            <input
+              id="password"
+              className="input-field pl-10 pr-11"
+              type={show ? 'text' : 'password'}
+              placeholder="Senha"
+              value={form.password}
+              onChange={set('password')}
+              required
+              minLength={6}
+            />
+            <button
+              type="button"
+              onClick={() => setShow(s => !s)}
+              className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 hover:text-white transition-colors"
+            >
+              {show ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+            </button>
+          </div>
+
+          <button type="submit" disabled={loading} className="btn-primary w-full justify-center mt-2">
+            {loading ? 'Aguarde…' : mode === 'login' ? 'Entrar' : 'Criar conta'}
+          </button>
+        </form>
+
+        <p className="text-center text-white/40 text-sm mt-4">
+          {mode === 'login' ? 'Não tem conta?' : 'Já tem conta?'}{' '}
+          <button onClick={switchMode} className="text-primary hover:underline font-medium">
+            {mode === 'login' ? 'Cadastre-se' : 'Faça login'}
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+}
